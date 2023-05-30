@@ -1,22 +1,9 @@
 #!/bin/bash
 
-# Add Brave Browser Sources
-# Brave Browser
-echo "Setting up Brave sources"
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
 # Update and add necessary packages
 echo "Installing Packages"
 sudo apt update
-sudo apt install -y fish terminator gedit python3-pip brave-browser vim-gtk3 zaproxy
-
-# Install VSCode
-echo "Installing VSCode"
-curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o code.deb
-sudo dpkg -i code.deb
-rm code.deb
+sudo apt install -y fish terminator gedit python3-pip vim-gtk3 zaproxy
 
 # Setup Rust and Rust tools
 echo "Installing Rust and Rust tools"
